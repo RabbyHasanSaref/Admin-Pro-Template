@@ -1,0 +1,408 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | Admin Pro</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+
+<body>
+
+<div class="app-wrapper">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-logo">
+            <div class="logo-icon">A</div>
+            <span class="sidebar-brand">Admin Pro</span>
+        </div>
+
+        <nav class="sidebar-navigation">
+
+            <div class="nav-heading">MAIN MENU</div>
+            <ul class="nav-list">
+                <li>
+                    <a href="../index.html" class="nav-link" aria-label="Dashboard">
+                        <span class="nav-icon"><i class="fa-solid fa-chart-pie"></i></span>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-group">
+                    <a href="#rbacSubmenu" class="nav-link submenu-toggle" aria-label="RBAC menu" aria-expanded="false" aria-controls="rbacSubmenu">
+                        <span class="nav-icon"><i class="fa-solid fa-shield-halved"></i></span>
+                        <span>RBAC</span>
+                        <i class="fa-solid fa-chevron-down nav-arrow" aria-hidden="true"></i>
+                    </a>
+                    <ul class="nav-submenu" id="rbacSubmenu">
+                        <li>
+                            <a href="users.html" class="nav-link" aria-label="Users">
+                                <span class="nav-icon"><i class="fa-solid fa-users"></i></span>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-group">
+                    <a href="#accountSubmenu" class="nav-link submenu-toggle" aria-label="Account menu" aria-expanded="false" aria-controls="accountSubmenu">
+                        <span class="nav-icon"><i class="fa-solid fa-user-gear"></i></span>
+                        <span>Account</span>
+                        <i class="fa-solid fa-chevron-down nav-arrow" aria-hidden="true"></i>
+                    </a>
+                    <ul class="nav-submenu" id="accountSubmenu">
+                        <li>
+                            <a href="profile.html" class="nav-link" aria-label="My Profile">
+                                <span class="nav-icon"><i class="fa-solid fa-user"></i></span>
+                                <span>My Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="setting.html" class="nav-link" aria-label="Settings">
+                                <span class="nav-icon"><i class="fa-solid fa-gear"></i></span>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </nav>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Navbar -->
+        <header class="top-navbar">
+
+            <div class="navbar-left">
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle sidebar">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="breadcrumb">
+                    <span>Account</span>
+                    <span>/</span>
+                    <strong>Settings</strong>
+                </div>
+            </div>
+
+            <div class="navbar-right">
+
+                <label class="navbar-search">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <input type="search" placeholder="Search..." aria-label="Search">
+                </label>
+
+                <button class="navbar-icon" id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle theme">
+                    <i class="fa-regular fa-moon"></i>
+                </button>
+
+                <div class="notification-wrapper">
+                    <button class="navbar-icon notification-btn" id="notificationBtn" type="button" aria-label="Notifications">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="notification-count" id="notificationCount">0</span>
+                    </button>
+
+                    <div class="notification-panel" id="notificationPanel">
+                        <div class="notification-header">
+                            <div>
+                                <h3>Notifications</h3>
+                                <p id="notificationSubtitle">You have new notifications</p>
+                            </div>
+                            <button type="button" id="markAllRead">Mark all read</button>
+                        </div>
+
+                        <div class="notification-tabs">
+                            <button type="button" class="notification-tab active" data-filter="all">All</button>
+                            <button type="button" class="notification-tab" data-filter="unread">Unread</button>
+                        </div>
+
+                        <div class="notification-list" id="notificationList"></div>
+                        <div class="notification-footer">Notification Center</div>
+                    </div>
+                </div>
+
+                <div class="profile-menu">
+                    <button class="profile-menu-toggle" type="button" aria-label="Open profile menu" aria-expanded="false" aria-controls="profileMenu">
+                        <span class="navbar-avatar">
+                            <img src="../assets/images/avatar.svg" alt="">
+                        </span>
+                    </button>
+                    <div class="profile-menu-panel" id="profileMenu" role="menu">
+                        <a href="profile.html" role="menuitem">
+                            <i class="fa-regular fa-user" aria-hidden="true"></i>
+                            <span>Profile</span>
+                        </a>
+                        <a href="../index.html#recentActivity" role="menuitem">
+                            <i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i>
+                            <span>Log Activity</span>
+                        </a>
+                        <a href="../login.html" role="menuitem" data-logout>
+                            <i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- Page Content -->
+        <section class="page-content" id="pageContent">
+
+            <div class="page-header">
+                <div>
+                    <h1>Settings</h1>
+                    <p>Manage your application preferences and configurations.</p>
+                </div>
+            </div>
+
+            <div id="settingsMessage" class="settings-message" role="status" aria-live="polite"></div>
+
+            <div class="settings-page">
+
+                <!-- General Settings -->
+                <div class="settings-card">
+
+                    <div class="settings-card-header">
+                        <div class="settings-icon">
+                            <i class="fa-solid fa-sliders"></i>
+                        </div>
+                        <div>
+                            <h3>General Settings</h3>
+                            <p>Configure your application information.</p>
+                        </div>
+                    </div>
+
+                    <div class="settings-card-body">
+                        <div class="settings-grid">
+
+                            <div class="settings-field">
+                                <label for="siteName">Application Name</label>
+                                <input type="text" id="siteName" placeholder="Enter application name" required>
+                            </div>
+
+                            <div class="settings-field">
+                                <label for="siteEmail">Contact Email</label>
+                                <input type="email" id="siteEmail" placeholder="admin@example.com" required>
+                            </div>
+
+                            <div class="settings-field">
+                                <label for="siteUrl">Website URL</label>
+                                <input type="url" id="siteUrl" placeholder="https://example.com">
+                            </div>
+
+                            <div class="settings-field">
+                                <label for="timezone">Timezone</label>
+                                <select id="timezone">
+                                    <option value="Asia/Dhaka">Asia/Dhaka (GMT+6)</option>
+                                    <option value="Asia/Kolkata">Asia/Kolkata (GMT+5:30)</option>
+                                    <option value="UTC">UTC</option>
+                                    <option value="Europe/London">Europe/London</option>
+                                    <option value="America/New_York">America/New_York</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Appearance -->
+                <div class="settings-card">
+
+                    <div class="settings-card-header">
+                        <div class="settings-icon">
+                            <i class="fa-solid fa-palette"></i>
+                        </div>
+                        <div>
+                            <h3>Appearance</h3>
+                            <p>Customize your dashboard appearance.</p>
+                        </div>
+                    </div>
+
+                    <div class="settings-card-body">
+
+                        <div class="settings-option">
+                            <div class="settings-option-info">
+                                <strong>Dark Mode</strong>
+                                <p>Enable dark theme for your dashboard.</p>
+                            </div>
+
+                            <label class="toggle-switch" aria-label="Enable dark mode">
+                                <input type="checkbox" id="darkModeSetting">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="settings-field settings-field-compact">
+                            <label for="language">Language</label>
+                            <select id="language">
+                                <option value="en">English</option>
+                                <option value="bn">বাংলা</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Notifications -->
+                <div class="settings-card">
+
+                    <div class="settings-card-header">
+                        <div class="settings-icon">
+                            <i class="fa-solid fa-bell"></i>
+                        </div>
+                        <div>
+                            <h3>Notification Settings</h3>
+                            <p>Choose which notifications you want to receive.</p>
+                        </div>
+                    </div>
+
+                    <div class="settings-card-body">
+
+                        <div class="settings-option">
+                            <div class="settings-option-info">
+                                <strong>Email Notifications</strong>
+                                <p>Receive notifications through email.</p>
+                            </div>
+                            <label class="toggle-switch" aria-label="Email notifications">
+                                <input type="checkbox" id="emailNotifications">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="settings-option">
+                            <div class="settings-option-info">
+                                <strong>New User Alerts</strong>
+                                <p>Get notified when a new user registers.</p>
+                            </div>
+                            <label class="toggle-switch" aria-label="New user alerts">
+                                <input type="checkbox" id="newUserAlerts">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="settings-option">
+                            <div class="settings-option-info">
+                                <strong>Security Alerts</strong>
+                                <p>Receive important security notifications.</p>
+                            </div>
+                            <label class="toggle-switch" aria-label="Security alerts">
+                                <input type="checkbox" id="securityAlerts">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="settings-option">
+                            <div class="settings-option-info">
+                                <strong>Marketing Updates</strong>
+                                <p>Receive product news and updates.</p>
+                            </div>
+                            <label class="toggle-switch" aria-label="Marketing updates">
+                                <input type="checkbox" id="marketingUpdates">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Security -->
+                <div class="settings-card">
+
+                    <div class="settings-card-header">
+                        <div class="settings-icon">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <div>
+                            <h3>Security Settings</h3>
+                            <p>Manage your account security preferences.</p>
+                        </div>
+                    </div>
+
+                    <div class="settings-card-body">
+
+                        <div class="settings-option">
+                            <div class="settings-option-info">
+                                <strong>Two-Factor Authentication</strong>
+                                <p>Add an extra layer of account protection.</p>
+                            </div>
+                            <label class="toggle-switch" aria-label="Two-factor authentication">
+                                <input type="checkbox" id="twoFactor">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="settings-option">
+                            <div class="settings-option-info">
+                                <strong>Login Activity Alerts</strong>
+                                <p>Get alerts about new login activity.</p>
+                            </div>
+                            <label class="toggle-switch" aria-label="Login activity alerts">
+                                <input type="checkbox" id="loginAlerts">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Save Actions -->
+                <div class="settings-card">
+                    <div class="settings-card-body">
+
+                        <div class="settings-bottom-actions">
+                            <p><i class="fa-solid fa-circle-info"></i> Changes are saved in this browser.</p>
+
+                            <div class="settings-actions settings-actions-compact">
+                                <button type="button" class="settings-btn settings-btn-secondary" id="resetSettings">
+                                    <i class="fa-solid fa-rotate-left"></i>
+                                    Reset Settings
+                                </button>
+
+                                <button type="button" class="settings-btn settings-btn-primary" id="saveSettings">
+                                    <i class="fa-solid fa-floppy-disk"></i>
+                                    Save Settings
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <p>© <span class="current-year"></span> Admin Pro. All rights reserved.</p>
+        </footer>
+
+    </main>
+
+</div>
+
+<!-- Shared JavaScript -->
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/navigation.js"></script>
+<script src="../assets/js/theme.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>

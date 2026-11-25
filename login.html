@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Admin Pro</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+    <main class="login-page">
+        <section class="login-card" aria-labelledby="loginTitle">
+            <div class="login-brand">
+                <span class="logo-icon" aria-hidden="true">A</span>
+                <span>Admin Pro</span>
+            </div>
+            <h1 id="loginTitle">Welcome back</h1>
+            <p>Sign in to continue to your dashboard.</p>
+
+            <form class="login-form" id="loginForm">
+                <div class="profile-field">
+                    <label for="loginEmail">Email address</label>
+                    <input id="loginEmail" name="email" type="email" autocomplete="username" value="admin@example.com" required>
+                </div>
+                <div class="profile-field">
+                    <label for="loginPassword">Password</label>
+                    <input id="loginPassword" name="password" type="password" autocomplete="current-password" required>
+                </div>
+                <p class="login-message" id="loginMessage" aria-live="polite"></p>
+                <button class="btn btn-primary" type="submit">
+                    <i class="fa-solid fa-arrow-right-to-bracket" aria-hidden="true"></i>
+                    Sign in
+                </button>
+            </form>
+
+            <div class="login-demo-note">
+                <strong>Demo credentials</strong><br>
+                Email: admin@example.com<br>
+                Password: Admin123!
+            </div>
+        </section>
+    </main>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

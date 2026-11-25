@@ -1,0 +1,352 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | Admin Pro</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+
+<body>
+
+<div class="app-wrapper">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-logo">
+            <div class="logo-icon">A</div>
+            <span class="sidebar-brand">Admin Pro</span>
+        </div>
+
+        <nav class="sidebar-navigation">
+
+            <div class="nav-heading">MAIN MENU</div>
+            <ul class="nav-list">
+                <li>
+                    <a href="../index.html" class="nav-link" aria-label="Dashboard">
+                        <span class="nav-icon"><i class="fa-solid fa-chart-pie"></i></span>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-group">
+                    <a href="#rbacSubmenu" class="nav-link submenu-toggle" aria-label="RBAC menu" aria-expanded="false" aria-controls="rbacSubmenu">
+                        <span class="nav-icon"><i class="fa-solid fa-shield-halved"></i></span>
+                        <span>RBAC</span>
+                        <i class="fa-solid fa-chevron-down nav-arrow" aria-hidden="true"></i>
+                    </a>
+                    <ul class="nav-submenu" id="rbacSubmenu">
+                        <li>
+                            <a href="users.html" class="nav-link" aria-label="Users">
+                                <span class="nav-icon"><i class="fa-solid fa-users"></i></span>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-group">
+                    <a href="#accountSubmenu" class="nav-link submenu-toggle" aria-label="Account menu" aria-expanded="false" aria-controls="accountSubmenu">
+                        <span class="nav-icon"><i class="fa-solid fa-user-gear"></i></span>
+                        <span>Account</span>
+                        <i class="fa-solid fa-chevron-down nav-arrow" aria-hidden="true"></i>
+                    </a>
+                    <ul class="nav-submenu" id="accountSubmenu">
+                        <li>
+                            <a href="profile.html" class="nav-link" aria-label="My Profile">
+                                <span class="nav-icon"><i class="fa-solid fa-user"></i></span>
+                                <span>My Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="setting.html" class="nav-link" aria-label="Settings">
+                                <span class="nav-icon"><i class="fa-solid fa-gear"></i></span>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </nav>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Navbar -->
+        <header class="top-navbar">
+
+            <div class="navbar-left">
+
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle sidebar">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="breadcrumb">
+                    <span>Dashboard</span>
+                    <span>/</span>
+                    <strong>Profile</strong>
+                </div>
+
+            </div>
+
+            <div class="navbar-right">
+
+                <label class="navbar-search">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <input type="search" placeholder="Search..." aria-label="Search">
+                </label>
+
+                <button class="navbar-icon" id="themeToggle" type="button" aria-label="Toggle theme">
+                    <i class="fa-regular fa-moon"></i>
+                </button>
+
+                <div class="notification-wrapper">
+
+                    <button class="navbar-icon notification-btn" id="notificationBtn" type="button" aria-label="Notifications">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="notification-count" id="notificationCount">0</span>
+                    </button>
+
+                    <div class="notification-panel" id="notificationPanel">
+
+                        <div class="notification-header">
+                            <div>
+                                <h3>Notifications</h3>
+                                <p id="notificationSubtitle">You have new notifications</p>
+                            </div>
+                            <button type="button" id="markAllRead">Mark all read</button>
+                        </div>
+
+                        <div class="notification-tabs">
+                            <button type="button" class="notification-tab active" data-filter="all">All</button>
+                            <button type="button" class="notification-tab" data-filter="unread">Unread</button>
+                        </div>
+
+                        <div class="notification-list" id="notificationList"></div>
+                        <div class="notification-footer">Notification Center</div>
+
+                    </div>
+
+                </div>
+
+                <div class="profile-menu">
+                    <button class="profile-menu-toggle" type="button" aria-label="Open profile menu" aria-expanded="false" aria-controls="profileMenu">
+                        <span class="navbar-avatar">
+                            <img src="../assets/images/avatar.svg" alt="">
+                        </span>
+                    </button>
+                    <div class="profile-menu-panel" id="profileMenu" role="menu">
+                        <a href="profile.html" role="menuitem">
+                            <i class="fa-regular fa-user" aria-hidden="true"></i>
+                            <span>Profile</span>
+                        </a>
+                        <a href="../index.html#recentActivity" role="menuitem">
+                            <i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i>
+                            <span>Log Activity</span>
+                        </a>
+                        <a href="../login.html" role="menuitem" data-logout>
+                            <i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- Page Content -->
+        <section class="page-content profile-page" id="pageContent">
+
+            <div class="page-header">
+                <div>
+                    <h1>My Profile</h1>
+                    <p>Manage your personal information and account details.</p>
+                </div>
+            </div>
+
+            <!-- Profile Overview -->
+            <div class="content-card profile-overview">
+
+                <div class="profile-overview-inner">
+
+                    <div class="profile-avatar" id="profileAvatar">AD</div>
+
+                    <div class="profile-overview-info">
+                        <h2 id="overviewName">Admin User</h2>
+                        <p id="overviewEmail">admin@example.com</p>
+                        <span class="status-badge active">Administrator</span>
+                    </div>
+
+                    <div class="profile-overview-actions">
+                        <button class="btn-primary" type="button" id="editProfileBtn">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            Edit Profile
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Personal Information -->
+            <div class="content-card profile-form-card">
+
+                <div class="card-header">
+                    <div>
+                        <h3><i class="fa-solid fa-user profile-section-icon"></i>Personal Information</h3>
+                        <p>Update your personal details.</p>
+                    </div>
+                </div>
+
+                <form id="profileForm" class="profile-form-body">
+
+                    <div class="profile-form-grid">
+
+                        <div class="profile-field">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" value="Admin User" required maxlength="100">
+                        </div>
+
+                        <div class="profile-field">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" value="admin@example.com" required>
+                        </div>
+
+                        <div class="profile-field">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" value="+880 1700-000000">
+                        </div>
+
+                        <div class="profile-field">
+                            <label for="designation">Designation</label>
+                            <input type="text" id="designation" value="System Administrator">
+                        </div>
+
+                        <div class="profile-field">
+                            <label for="country">Country</label>
+                            <input type="text" id="country" value="Bangladesh">
+                        </div>
+
+                        <div class="profile-field">
+                            <label for="website">Website</label>
+                            <input type="url" id="website" placeholder="https://example.com">
+                        </div>
+
+                        <div class="profile-field full-width">
+                            <label for="bio">About Me</label>
+                            <textarea id="bio" rows="4">I am a system administrator responsible for managing this workspace.</textarea>
+                        </div>
+
+                    </div>
+
+                    <div id="profileMessage" class="profile-message"></div>
+
+                    <div class="profile-form-actions">
+                        <button type="reset" class="profile-secondary-btn">
+                            <i class="fa-solid fa-rotate-left"></i>
+                            Reset
+                        </button>
+
+                        <button type="submit" class="btn-primary">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            Save Changes
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+            <!-- Change Password -->
+            <div class="content-card profile-form-card">
+
+                <div class="card-header">
+                    <div>
+                        <h3><i class="fa-solid fa-lock profile-section-icon"></i>Change Password</h3>
+                        <p>Update your account password.</p>
+                    </div>
+                </div>
+
+                <form id="passwordForm" class="profile-form-body">
+
+                    <div class="profile-form-grid">
+
+                        <div class="profile-field">
+                            <label for="currentPassword">Current Password</label>
+                            <div class="profile-password-wrap">
+                                <input type="password" id="currentPassword" required placeholder="Enter current password">
+                                <button type="button" class="password-toggle" data-target="currentPassword" aria-label="Show password">
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="profile-field">
+                            <label for="newPassword">New Password</label>
+                            <div class="profile-password-wrap">
+                                <input type="password" id="newPassword" required minlength="8" placeholder="Minimum 8 characters">
+                                <button type="button" class="password-toggle" data-target="newPassword" aria-label="Show password">
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+                            </div>
+                            <small class="profile-hint">Use at least 8 characters.</small>
+                        </div>
+
+                        <div class="profile-field">
+                            <label for="confirmPassword">Confirm New Password</label>
+                            <div class="profile-password-wrap">
+                                <input type="password" id="confirmPassword" required minlength="8" placeholder="Confirm new password">
+                                <button type="button" class="password-toggle" data-target="confirmPassword" aria-label="Show password">
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="passwordMessage" class="profile-message"></div>
+
+                    <div class="profile-form-actions">
+                        <button type="submit" class="btn-primary">
+                            <i class="fa-solid fa-key"></i>
+                            Update Password
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <p>© <span class="current-year"></span> Admin Pro. All rights reserved.</p>
+        </footer>
+
+    </main>
+
+</div>
+
+<!-- Shared JavaScript -->
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/navigation.js"></script>
+<script src="../assets/js/theme.js"></script>
+<script src="../assets/js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users | Admin Pro</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+<div class="app-wrapper">
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <div class="logo-icon">A</div>
+            <span class="sidebar-brand">Admin Pro</span>
+        </div>
+
+        <nav class="sidebar-navigation">
+            <div class="nav-heading">MAIN MENU</div>
+            <ul class="nav-list">
+                <li>
+                    <a href="../index.html" class="nav-link" aria-label="Dashboard">
+                        <span class="nav-icon"><i class="fa-solid fa-chart-pie"></i></span>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-group">
+                    <a href="#rbacSubmenu" class="nav-link submenu-toggle" aria-label="RBAC menu" aria-expanded="false" aria-controls="rbacSubmenu">
+                        <span class="nav-icon"><i class="fa-solid fa-shield-halved"></i></span>
+                        <span>RBAC</span>
+                        <i class="fa-solid fa-chevron-down nav-arrow" aria-hidden="true"></i>
+                    </a>
+                    <ul class="nav-submenu" id="rbacSubmenu">
+                        <li>
+                            <a href="users.html" class="nav-link" aria-label="Users">
+                                <span class="nav-icon"><i class="fa-solid fa-users"></i></span>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-group">
+                    <a href="#accountSubmenu" class="nav-link submenu-toggle" aria-label="Account menu" aria-expanded="false" aria-controls="accountSubmenu">
+                        <span class="nav-icon"><i class="fa-solid fa-user-gear"></i></span>
+                        <span>Account</span>
+                        <i class="fa-solid fa-chevron-down nav-arrow" aria-hidden="true"></i>
+                    </a>
+                    <ul class="nav-submenu" id="accountSubmenu">
+                        <li>
+                            <a href="profile.html" class="nav-link" aria-label="My Profile">
+                                <span class="nav-icon"><i class="fa-solid fa-user"></i></span>
+                                <span>My Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="setting.html" class="nav-link" aria-label="Settings">
+                                <span class="nav-icon"><i class="fa-solid fa-gear"></i></span>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-navbar">
+            <div class="navbar-left">
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle sidebar">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="breadcrumb">
+                    <span>RBAC</span>
+                    <span>/</span>
+                    <strong>Users</strong>
+                </div>
+            </div>
+            <div class="navbar-right">
+                <label class="navbar-search">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <input type="search" placeholder="Search..." aria-label="Search">
+                </label>
+                <button class="navbar-icon" id="themeToggle" type="button" aria-label="Toggle theme">
+                    <i class="fa-regular fa-moon"></i>
+                </button>
+                <div class="profile-menu">
+                    <button class="profile-menu-toggle" type="button" aria-label="Open profile menu" aria-expanded="false" aria-controls="profileMenu">
+                        <span class="navbar-avatar">
+                            <img src="../assets/images/avatar.svg" alt="">
+                        </span>
+                    </button>
+                    <div class="profile-menu-panel" id="profileMenu" role="menu">
+                        <a href="profile.html" role="menuitem">
+                            <i class="fa-regular fa-user" aria-hidden="true"></i>
+                            <span>Profile</span>
+                        </a>
+                        <a href="../index.html#recentActivity" role="menuitem">
+                            <i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i>
+                            <span>Log Activity</span>
+                        </a>
+                        <a href="../login.html" role="menuitem" data-logout>
+                            <i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="page-content" id="pageContent">
+            <div class="page-header">
+                <div>
+                    <h1>Users</h1>
+                    <p>Manage users and their access to this workspace.</p>
+                </div>
+            </div>
+
+            <section class="content-card users-form-card" aria-labelledby="userFormTitle">
+                <div class="card-header">
+                    <div>
+                        <h3 id="userFormTitle">Add a user</h3>
+                        <p>Create or update a workspace user.</p>
+                    </div>
+                </div>
+                <form id="userForm" class="users-form">
+                    <input type="hidden" id="userId">
+                    <div class="users-form-grid">
+                        <div class="profile-field">
+                            <label for="userName">Full name</label>
+                            <input id="userName" name="name" type="text" required maxlength="100" placeholder="e.g. Alex Morgan">
+                        </div>
+                        <div class="profile-field">
+                            <label for="userEmail">Email address</label>
+                            <input id="userEmail" name="email" type="email" required maxlength="160" placeholder="name@example.com">
+                        </div>
+                        <div class="profile-field">
+                            <label for="userRole">Role</label>
+                            <select id="userRole" name="role" required>
+                                <option value="Administrator">Administrator</option>
+                                <option value="Editor">Editor</option>
+                                <option value="Author">Author</option>
+                                <option value="Viewer">Viewer</option>
+                            </select>
+                        </div>
+                        <div class="profile-field">
+                            <label for="userStatus">Status</label>
+                            <select id="userStatus" name="status" required>
+                                <option value="Active">Active</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Inactive">Inactive</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p class="users-form-message" id="usersFormMessage" aria-live="polite"></p>
+                    <div class="users-form-actions">
+                        <button class="btn btn-outline" type="button" id="cancelUserEdit" hidden>Cancel</button>
+                        <button class="btn btn-primary" type="submit" id="saveUserBtn">
+                            <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
+                            Add user
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="content-card users-directory-card" aria-labelledby="usersDirectoryTitle">
+                <div class="card-header">
+                    <div>
+                        <h3 id="usersDirectoryTitle">User directory</h3>
+                        <p>Demo users are stored in this browser.</p>
+                    </div>
+                    <span class="users-count" id="usersCount">0 users</span>
+                </div>
+                <div class="users-table-wrap">
+                    <table class="users-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">User</th>
+                                <th scope="col">Role</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody"></tbody>
+                    </table>
+                </div>
+                <p class="users-form-message users-storage-message" id="usersStorageMessage" aria-live="polite"></p>
+            </section>
+        </section>
+
+        <footer class="main-footer">
+            <p>© <span class="current-year"></span> Admin Pro. All rights reserved.</p>
+        </footer>
+    </main>
+</div>
+
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/navigation.js"></script>
+<script src="../assets/js/theme.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>
